@@ -1,3 +1,4 @@
+// A través de ésta vamos a aplicar un regex para terminar de dividir cada segmento del cálculo solicitado en tokens.
 function tokenise(expr)
 {
     const tokens = []
@@ -15,6 +16,7 @@ function tokenise(expr)
 
 function parse(tokens)
 {
+    // Administrar la parte del cálculo con paréntesis, o el manejo de tokens de operaciones en general.
     function parsePrimary()
     {
         const token = tokens.shift()
@@ -34,6 +36,7 @@ function parse(tokens)
         throw new Error(`[SYNTAX ERROR] El token ${token} fue inesperado.`)
     }
 
+    // Administrar potencias.
     function parsePower()
     {
         let left = parsePrimary()
@@ -48,6 +51,7 @@ function parse(tokens)
         return left
     }
 
+    // Administrar multiplicaciones o divisiones.
     function parseFactor()
     {
         let left = parsePower()
@@ -62,6 +66,7 @@ function parse(tokens)
         return left
     }
 
+    // Administrar operaciones de suma y resta.
     function parseSumSubs()
     {
         let left = parseFactor()
@@ -79,11 +84,16 @@ function parse(tokens)
     return parseSumSubs()
 }
 
+// Operación de evaluación general.
 function evaluate(expr)
 {
+    // Inicialmente, tokenizar el cálculo...
     const tokens = tokenise(expr)
+    // ...obtener el resultado...
     const result = parse(tokens)
+    // En el caso de que sobre algún token (o caracter en general) devolver un error de sintaxis.
     if (tokens.length > 0) throw new Error(`[SYNTAX ERROR] Sobraron los siguientes tokens: ${tokens.join(' ')}.`)
+    // Finalmente, devolver el resultado.
     return result
 }
 
