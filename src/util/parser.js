@@ -31,7 +31,7 @@ function parse(tokens)
             return parseFloat(token)
         }
 
-        throw new Error(`[SYNTAX ERROR] El token ${token} fue inesperado`)
+        throw new Error(`[SYNTAX ERROR] El token ${token} fue inesperado.`)
     }
 
     function parsePower()
@@ -83,7 +83,7 @@ function evaluate(expr)
 {
     const tokens = tokenise(expr)
     const result = parse(tokens)
-    if (tokens.length > 0) throw new Error(`[SYNTAX ERROR] Sobraron los siguientes tokens: ${tokens.join(' ')}`)
+    if (tokens.length > 0) throw new Error(`[SYNTAX ERROR] Sobraron los siguientes tokens: ${tokens.join(' ')}.`)
     return result
 }
 
