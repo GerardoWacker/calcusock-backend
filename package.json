@@ -1,0 +1,19 @@
+{
+  "name": "calcusock-backend",
+  "version": "2025.410.0",
+  "description": "Backend para calculadora de SSDD",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerardowacker/calcusock-backend.git"
+  },
+  "author": "Gerardo Wacker (https://github.com/gerardowacker)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gerardowacker/calcusock-backend/issues"
+  },
+  "homepage": "https://github.com/gerardowacker/calcusock-backend#readme"
+}
